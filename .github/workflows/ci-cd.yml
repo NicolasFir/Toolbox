@@ -1,4 +1,4 @@
-name: CI/CD for organize_fastq.py
+name: CI/CD for split_batches.py
 
 on:
   push:
@@ -31,5 +31,5 @@ jobs:
         # Exemple : pip install pandas numpy
 
     # Étape 4 : Exécuter le script Python
-    - name: Run organize_fastq script
-      run: python organize_fastq.py
+    - name: Run split_batches script
+      run: python split_batches.py
