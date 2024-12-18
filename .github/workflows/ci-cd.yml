@@ -1,0 +1,35 @@
+name: CI/CD for organize_fastq.py
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  organize-fastq:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Étape 1 : Vérifier le code source
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Étape 2 : Configurer Python
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+
+    # Étape 3 : Installer les dépendances (si nécessaires)
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        # Ajouter d'autres dépendances si votre script en nécessite
+        # Exemple : pip install pandas numpy
+
+    # Étape 4 : Exécuter le script Python
+    - name: Run organize_fastq script
+      run: python organize_fastq.py
